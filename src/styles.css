@@ -63,26 +63,26 @@
 
 :root {
   --radius: 0.5rem;
-  /* Sevie Roast — warm cafe palette */
-  --background: oklch(0.97 0.018 80);          /* cream */
-  --foreground: oklch(0.26 0.035 50);          /* deep coffee brown */
-  --card: oklch(0.985 0.012 85);
-  --card-foreground: oklch(0.26 0.035 50);
-  --popover: oklch(0.985 0.012 85);
-  --popover-foreground: oklch(0.26 0.035 50);
-  --primary: oklch(0.32 0.045 45);             /* deep coffee */
-  --primary-foreground: oklch(0.97 0.018 80);
-  --secondary: oklch(0.92 0.022 75);           /* warm beige */
-  --secondary-foreground: oklch(0.26 0.035 50);
-  --muted: oklch(0.93 0.018 78);
-  --muted-foreground: oklch(0.45 0.025 55);    /* soft charcoal-brown */
-  --accent: oklch(0.62 0.11 55);               /* warm caramel */
-  --accent-foreground: oklch(0.97 0.018 80);
+  /* Sevie Roast — warm brown cafe palette (matches wood + leather interior) */
+  --background: oklch(0.93 0.028 70);          /* warm tan cream */
+  --foreground: oklch(0.22 0.04 45);           /* dark espresso */
+  --card: oklch(0.95 0.022 72);
+  --card-foreground: oklch(0.22 0.04 45);
+  --popover: oklch(0.95 0.022 72);
+  --popover-foreground: oklch(0.22 0.04 45);
+  --primary: oklch(0.28 0.05 45);              /* roasted coffee brown */
+  --primary-foreground: oklch(0.95 0.025 75);
+  --secondary: oklch(0.86 0.035 70);           /* light caramel */
+  --secondary-foreground: oklch(0.22 0.04 45);
+  --muted: oklch(0.88 0.03 70);
+  --muted-foreground: oklch(0.40 0.035 50);    /* warm brown-gray */
+  --accent: oklch(0.55 0.12 50);               /* deep caramel / amber */
+  --accent-foreground: oklch(0.97 0.025 78);
   --destructive: oklch(0.55 0.18 28);
-  --destructive-foreground: oklch(0.97 0.018 80);
-  --border: oklch(0.86 0.025 75);
-  --input: oklch(0.88 0.022 75);
-  --ring: oklch(0.45 0.05 50);
+  --destructive-foreground: oklch(0.97 0.025 78);
+  --border: oklch(0.78 0.035 65);
+  --input: oklch(0.82 0.03 68);
+  --ring: oklch(0.40 0.06 48);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);

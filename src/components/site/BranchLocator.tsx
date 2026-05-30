@@ -4,31 +4,34 @@ import { branches, type Branch } from "@/data/branches";
 
 function MapMock({ branch }: { branch: Branch }) {
   return (
-    <div
-      className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border bg-[oklch(0.93_0.02_85)]"
-      aria-hidden
+    <a
+      href={branch.mapsUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`Open ${branch.name} in Google Maps`}
+      className="group relative block aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border bg-[oklch(0.90_0.03_70)] transition-shadow hover:shadow-lg hover:shadow-primary/10"
     >
       {/* grid streets */}
       <div
         className="absolute inset-0 opacity-60"
         style={{
           backgroundImage:
-            "linear-gradient(to right, oklch(0.86 0.025 75) 1px, transparent 1px), linear-gradient(to bottom, oklch(0.86 0.025 75) 1px, transparent 1px)",
+            "linear-gradient(to right, oklch(0.80 0.035 65) 1px, transparent 1px), linear-gradient(to bottom, oklch(0.80 0.035 65) 1px, transparent 1px)",
           backgroundSize: "48px 48px",
         }}
       />
       {/* diagonal main road */}
-      <div className="absolute inset-x-[-10%] top-1/2 h-3 -translate-y-1/2 rotate-[-12deg] bg-[oklch(0.82_0.03_75)]" />
-      <div className="absolute inset-y-[-10%] left-1/2 w-3 -translate-x-1/2 rotate-[8deg] bg-[oklch(0.82_0.03_75)]" />
+      <div className="absolute inset-x-[-10%] top-1/2 h-3 -translate-y-1/2 rotate-[-12deg] bg-[oklch(0.75_0.04_65)]" />
+      <div className="absolute inset-y-[-10%] left-1/2 w-3 -translate-x-1/2 rotate-[8deg] bg-[oklch(0.75_0.04_65)]" />
       {/* park blob */}
-      <div className="absolute right-6 top-6 h-20 w-24 rounded-[40%] bg-[oklch(0.82_0.06_135)]/60" />
+      <div className="absolute right-6 top-6 h-20 w-24 rounded-[40%] bg-[oklch(0.70_0.07_130)]/60" />
       {/* pin */}
       <div
         className="absolute"
         style={{ left: `${branch.pin.x}%`, top: `${branch.pin.y}%`, transform: "translate(-50%, -100%)" }}
       >
         <div className="flex flex-col items-center">
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg shadow-accent/30 ring-4 ring-background">
+          <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg shadow-accent/30 ring-4 ring-background transition-transform group-hover:scale-110">
             <MapPin className="h-5 w-5" />
           </div>
           <div className="-mt-1 h-3 w-3 rotate-45 bg-accent" />
@@ -38,10 +41,10 @@ function MapMock({ branch }: { branch: Branch }) {
       <div className="absolute bottom-3 left-3 rounded-md bg-background/90 px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
         {branch.area}
       </div>
-      <div className="absolute right-3 top-3 rounded-md bg-background/90 px-2 py-1 text-[10px] text-muted-foreground">
-        Simulated map
+      <div className="absolute right-3 top-3 rounded-md bg-background/95 px-2.5 py-1 text-[10px] font-medium text-foreground shadow-sm">
+        Open in Google Maps ↗
       </div>
-    </div>
+    </a>
   );
 }
 
