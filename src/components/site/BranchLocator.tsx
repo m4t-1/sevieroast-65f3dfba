@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MapPin, Clock, Phone } from "lucide-react";
+import { MapPin, Clock, Phone, Star } from "lucide-react";
 import { branches, type Branch } from "@/data/branches";
 
 function MapMock({ branch }: { branch: Branch }) {
@@ -83,7 +83,18 @@ export function BranchLocator() {
         <div className="mt-10 grid gap-8 md:grid-cols-2">
           <MapMock branch={active} />
           <div className="flex flex-col">
-            <h3 className="font-serif text-2xl text-foreground">{active.name}</h3>
+            <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+              <h3 className="font-serif text-2xl text-foreground">{active.name}</h3>
+              {active.rating ? (
+                <span className="inline-flex items-center gap-1 rounded-full bg-secondary px-2.5 py-1 text-xs text-foreground">
+                  <Star className="h-3.5 w-3.5 fill-accent text-accent" />
+                  {active.rating.toFixed(1)}
+                  <span className="text-muted-foreground">
+                    · {active.reviewCount} reviews
+                  </span>
+                </span>
+              ) : null}
+            </div>
             <ul className="mt-6 space-y-4 text-sm">
               <li className="flex gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 text-accent" />
