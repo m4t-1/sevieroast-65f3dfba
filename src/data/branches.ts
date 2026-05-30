@@ -9,6 +9,8 @@ export type Branch = {
   pin: { x: number; y: number };
   /** label shown on map */
   area: string;
+  rating?: number;
+  reviewCount?: number;
 };
 
 export const branches: Branch[] = [
@@ -25,13 +27,16 @@ export const branches: Branch[] = [
   },
   {
     id: "sampaloc",
-    name: "Sevie Roast — Sampaloc",
-    address: "456 España Boulevard, Sampaloc, Manila",
-    hours: "Mon–Sun · 7:00 AM – 11:00 PM",
+    name: "Sevie Roast — Lacson UST",
+    address:
+      "Piy Margal St, cor. Dos Castillas St, Sampaloc, Manila, 1008 Metro Manila",
+    hours: "Daily · 10:00 AM – 10:00 PM",
     phone: "(02) 8234 5678",
     grabFoodUrl:
       "https://food.grab.com/ph/en/restaurants?search=sevie+roast+sampaloc",
     pin: { x: 62, y: 58 },
     area: "Manila",
+    rating: 4.1,
+    reviewCount: 12,
   },
 ];
