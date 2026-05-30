@@ -9,6 +9,8 @@ export type Branch = {
   pin: { x: number; y: number };
   /** label shown on map */
   area: string;
+  /** Google Maps URL for the branch */
+  mapsUrl: string;
   rating?: number;
   reviewCount?: number;
 };
@@ -24,6 +26,8 @@ export const branches: Branch[] = [
       "https://food.grab.com/ph/en/restaurants?search=sevie+roast+baesa",
     pin: { x: 38, y: 42 },
     area: "Quezon City",
+    mapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=Sevie+Roast+Coffee+Baesa+Quezon+City",
   },
   {
     id: "sampaloc",
@@ -36,6 +40,8 @@ export const branches: Branch[] = [
       "https://food.grab.com/ph/en/restaurants?search=sevie+roast+sampaloc",
     pin: { x: 62, y: 58 },
     area: "Manila",
+    mapsUrl:
+      "https://www.google.com/maps/search/?api=1&query=Sevie+Roast+Coffee+Lacson+UST+Piy+Margal+Sampaloc+Manila",
     rating: 4.1,
     reviewCount: 12,
   },
