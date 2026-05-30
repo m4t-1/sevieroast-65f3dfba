@@ -1,42 +1,35 @@
-## Sevie Roast — Modern Minimalist Coffee Shop Site
+Incorporate real Sevie Roast info (from the Google listing + uploaded interior/pastry photos) into the site.
 
-A single responsive homepage for Sevie Roast with warm cafe palette (cream, deep coffee brown, soft charcoal), built on the existing TanStack Start + Tailwind stack.
+### Data updates
+- `src/data/branches.ts` — Sampaloc branch:
+  - name: "Sevie Roast — Lacson UST"
+  - address: "Piy Margal St, cor. Dos Castillas St, Sampaloc, Manila, 1008 Metro Manila"
+  - hours: "Daily · 10:00 AM – late" (listing says "Opens 10 AM")
+  - rating: 4.1 (12 reviews)
+- Keep Baesa branch as-is (no real data was provided for it).
+- Add optional `rating` / `reviewCount` fields to the Branch type.
 
-### Design system (src/styles.css)
-- Replace default tokens with warm palette in oklch:
-  - `--background`: cream (~oklch(0.97 0.02 80))
-  - `--foreground`: deep coffee brown (~oklch(0.25 0.04 50))
-  - `--primary`: deep coffee brown; `--primary-foreground`: cream
-  - `--secondary` / `--muted`: soft charcoal-tinted beige
-  - `--accent`: warm caramel
-  - `--border`: subtle warm tan
-- Typography: serif display (Playfair Display) for headings + Inter for body, loaded via Google Fonts in `__root.tsx` head links.
+### Photos (use uploaded images)
+- Copy the 4 interior shots + 1 pastry case shot into `src/assets/sevie/`:
+  - `storefront.jpg`, `seating-orange.jpg`, `lounge.jpg`, `entrance.jpg`, `pastries.jpg`
+- New **Gallery section** between Menu and Branches: responsive masonry-ish grid of the 5 real photos with subtle captions.
+- Swap the AI hero image for the warmest storefront/lounge shot (likely `lounge.jpg`) to give the page real identity. Keep the latte image as a secondary accent or drop it.
 
-### Page sections (src/routes/index.tsx + components)
-1. **Nav** — wordmark "Sevie Roast" left; anchor links Menu / Branches / Order; minimal, sticky.
-2. **Hero** — large serif headline, short tagline ("Small-batch specialty coffee, brewed in Quezon City & Manila"), two CTAs (View Menu, Find a Branch). Subtle warm gradient/texture background; AI-generated hero image of latte/beans.
-3. **Tabbed Menu** — shadcn `Tabs` with categories: Espresso, Brewed Coffee, Specialty, Non-Coffee, Pastries. Each tab shows a grid of items (name, short description, price in ₱). Static curated data in `src/data/menu.ts`.
-4. **Branch Locator** — toggle (Tabs or segmented buttons) between **Baesa, QC** and **Sampaloc, Manila**. Each panel shows:
-   - Address, hours, phone (placeholder)
-   - Simulated Google Maps preview: a styled card with a stylized map illustration (CSS grid lines + pin marker) — clearly a mock, no external API
-   - A prominent **"Order on GrabFood"** button (distinct per branch; opens GrabFood search URL for that branch in new tab as placeholder)
-5. **Footer** — brand line, socials placeholders, copyright.
+### Reviews section (new)
+- New `Reviews` component between Gallery and Branches showing 3 curated real reviews (Elvira Reyes, Stella Jones, Jul Martin Cruz) as cards with name, date, snippet, and a small star row.
+- Header shows aggregate "4.1 ★ · 12 Google reviews".
+- Data lives in `src/data/reviews.ts`.
 
-### Components to add
-- `src/components/site/Nav.tsx`
-- `src/components/site/Hero.tsx`
-- `src/components/site/MenuSection.tsx`
-- `src/components/site/BranchLocator.tsx` (includes `MapMock` subcomponent)
-- `src/components/site/Footer.tsx`
-- `src/data/menu.ts`, `src/data/branches.ts`
-
-### Assets
-- Generate 1 hero image (warm, moody pour-over / latte art) into `src/assets/hero.jpg`.
+### Branch card polish
+- Show rating + review count on the Sampaloc branch card.
+- Update hours display.
+- Keep simulated map + GrabFood CTA as-is.
 
 ### SEO
-- Update `index.tsx` route `head()` with Sevie Roast title (<60 chars), meta description (<160 chars), og tags. Single H1 in hero.
+- Update meta description to mention Lacson UST / España area for the Sampaloc branch.
+- Add JSON-LD `CafeOrCoffeeShop` for the Sampaloc location with address, geo placeholder omitted, aggregateRating 4.1/12.
 
 ### Out of scope
-- Real Google Maps integration (simulated only, as requested)
-- Online ordering backend (GrabFood buttons are external links)
-- Multi-page routing — single homepage with in-page anchors
+- No real Google Maps embed (still simulated, per original brief).
+- No live reviews fetch — curated static set from the provided text.
+- No Baesa photos/reviews (none provided); leave Baesa with the generic copy.
