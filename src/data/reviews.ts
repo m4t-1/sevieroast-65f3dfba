@@ -24,7 +24,32 @@ export const reviews: Review[] = [
     name: "Jul Martin Cruz",
     date: "2 weeks ago",
     rating: 5,
-    text: "Definitely worth a visit. The food is yummy and freshly prepared, and the drinks are refreshing and well-balanced. A great pair for any time of day.",
+    text: "Sevie Roast Coffee – Lacson UST is definitely worth a visit! The food is very yummy, freshly prepared, and full of flavor that makes every bite satisfying. Their drinks are equally delightful — refreshing, well-balanced, and perfect to pair with anything on the menu.",
+  },
+  {
+    name: "Serena",
+    date: "8 months ago",
+    rating: 5,
+    text: "Great service! Nice food and the place is very cozy. Will come back again 😊",
+  },
+  {
+    name: "lari",
+    badge: "Local Guide",
+    date: "7 months ago",
+    rating: 5,
+    text: "Tried 2 coffees, so far both are good. Lovely little spot to settle into.",
+  },
+  {
+    name: "Jhed Allen Revilla",
+    date: "2 weeks ago",
+    rating: 5,
+    text: "Great service.",
+  },
+  {
+    name: "Bens",
+    date: "2 months ago",
+    rating: 5,
+    text: "Service 5/5, atmosphere 4/5. Moderate noise — easy place to hang out and sip slowly.",
   },
 ];
 

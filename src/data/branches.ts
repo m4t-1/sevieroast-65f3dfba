@@ -11,9 +11,14 @@ export type Branch = {
   area: string;
   /** Google Maps URL for the branch */
   mapsUrl: string;
+  /** Static map image (imported asset) */
+  mapImage: string;
   rating?: number;
   reviewCount?: number;
 };
+
+import mapBaesa from "@/assets/sevie/map-baesa.png";
+import mapSampaloc from "@/assets/sevie/map-sampaloc.png";
 
 export const branches: Branch[] = [
   {
@@ -27,7 +32,8 @@ export const branches: Branch[] = [
     pin: { x: 38, y: 42 },
     area: "Quezon City",
     mapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Sevie+Roast+Coffee+Baesa+Quezon+City",
+      "https://www.google.com/maps/place/Sevie+Roast+Coffee/@14.6778719,121.0120279,17z/data=!4m10!1m2!2m1!1ssevie+roast!3m6!1s0x3397b7fad80959e1:0x7c0256f9e8c15616!8m2!3d14.6778719!4d121.0167915",
+    mapImage: mapBaesa,
   },
   {
     id: "sampaloc",
@@ -41,7 +47,8 @@ export const branches: Branch[] = [
     pin: { x: 62, y: 58 },
     area: "Manila",
     mapsUrl:
-      "https://www.google.com/maps/search/?api=1&query=Sevie+Roast+Coffee+Lacson+UST+Piy+Margal+Sampaloc+Manila",
+      "https://www.google.com/maps/place/Sevie+Roast+Coffee+-+Lacson+UST/@14.6125055,120.9863611,17z/data=!4m10!1m2!2m1!1ssevie+roast!3m6!1s0x3397b778a9f9f4a7:0x3dec71442aad9e05!8m2!3d14.6125055!4d120.9911247",
+    mapImage: mapSampaloc,
     rating: 4.1,
     reviewCount: 12,
   },
