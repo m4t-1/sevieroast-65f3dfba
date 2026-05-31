@@ -17,8 +17,8 @@ function Stars({ value }: { value: number }) {
 export function Reviews() {
   return (
     <section id="reviews" className="border-t border-border/60 bg-secondary/40">
-      <div className="mx-auto max-w-6xl px-6 py-20 md:py-28">
-        <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
+      <div className="py-20 md:py-28">
+        <div className="mx-auto flex max-w-2xl flex-col items-center px-6 text-center">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-accent">Loved by regulars</p>
           <h2 className="mt-3 font-serif text-4xl text-foreground md:text-5xl">
             What folks are saying.
@@ -32,24 +32,26 @@ export function Reviews() {
           </div>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
-          {reviews.map((r) => (
-            <figure
-              key={r.name}
-              className="flex flex-col rounded-2xl border border-border/60 bg-background p-6"
-            >
-              <Stars value={r.rating} />
-              <blockquote className="mt-4 grow text-sm leading-relaxed text-foreground">
-                "{r.text}"
-              </blockquote>
-              <figcaption className="mt-6 border-t border-border/60 pt-4 text-sm">
-                <div className="font-medium text-foreground">{r.name}</div>
-                <div className="text-xs text-muted-foreground">
-                  {r.badge ? `${r.badge} · ` : ""}{r.date}
-                </div>
-              </figcaption>
-            </figure>
-          ))}
+        <div className="marquee-mask group relative mt-12 overflow-hidden">
+          <div className="animate-marquee flex w-max gap-5 group-hover:[animation-play-state:paused]">
+            {[...reviews, ...reviews].map((r, i) => (
+              <figure
+                key={`${r.name}-${i}`}
+                className="flex w-[320px] shrink-0 flex-col rounded-2xl border border-border/60 bg-background p-6 sm:w-[360px]"
+              >
+                <Stars value={r.rating} />
+                <blockquote className="mt-4 grow text-sm leading-relaxed text-foreground">
+                  "{r.text}"
+                </blockquote>
+                <figcaption className="mt-6 border-t border-border/60 pt-4 text-sm">
+                  <div className="font-medium text-foreground">{r.name}</div>
+                  <div className="text-xs text-muted-foreground">
+                    {r.badge ? `${r.badge} · ` : ""}{r.date}
+                  </div>
+                </figcaption>
+              </figure>
+            ))}
+          </div>
         </div>
       </div>
     </section>
