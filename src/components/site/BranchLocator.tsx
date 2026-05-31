@@ -2,46 +2,27 @@ import { useState } from "react";
 import { MapPin, Clock, Phone, Star } from "lucide-react";
 import { branches, type Branch } from "@/data/branches";
 
-function MapMock({ branch }: { branch: Branch }) {
+function BranchMap({ branch }: { branch: Branch }) {
   return (
     <a
       href={branch.mapsUrl}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`Open ${branch.name} in Google Maps`}
-      className="group relative block aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border bg-[oklch(0.90_0.03_70)] transition-shadow hover:shadow-lg hover:shadow-primary/10"
+      className="group relative block aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border bg-secondary transition-shadow hover:shadow-lg hover:shadow-primary/10"
     >
-      {/* grid streets */}
-      <div
-        className="absolute inset-0 opacity-60"
-        style={{
-          backgroundImage:
-            "linear-gradient(to right, oklch(0.80 0.035 65) 1px, transparent 1px), linear-gradient(to bottom, oklch(0.80 0.035 65) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
+      <img
+        src={branch.mapImage}
+        alt={`Map showing ${branch.name}`}
+        loading="lazy"
+        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
       />
-      {/* diagonal main road */}
-      <div className="absolute inset-x-[-10%] top-1/2 h-3 -translate-y-1/2 rotate-[-12deg] bg-[oklch(0.75_0.04_65)]" />
-      <div className="absolute inset-y-[-10%] left-1/2 w-3 -translate-x-1/2 rotate-[8deg] bg-[oklch(0.75_0.04_65)]" />
-      {/* park blob */}
-      <div className="absolute right-6 top-6 h-20 w-24 rounded-[40%] bg-[oklch(0.70_0.07_130)]/60" />
-      {/* pin */}
-      <div
-        className="absolute"
-        style={{ left: `${branch.pin.x}%`, top: `${branch.pin.y}%`, transform: "translate(-50%, -100%)" }}
-      >
-        <div className="flex flex-col items-center">
-          <div className="relative flex h-10 w-10 items-center justify-center rounded-full bg-accent text-accent-foreground shadow-lg shadow-accent/30 ring-4 ring-background transition-transform group-hover:scale-110">
-            <MapPin className="h-5 w-5" />
-          </div>
-          <div className="-mt-1 h-3 w-3 rotate-45 bg-accent" />
-        </div>
-      </div>
-      {/* labels */}
+      <div className="absolute inset-0 bg-gradient-to-t from-foreground/15 via-transparent to-transparent" />
       <div className="absolute bottom-3 left-3 rounded-md bg-background/90 px-2 py-1 text-[10px] font-medium uppercase tracking-wider text-muted-foreground">
         {branch.area}
       </div>
-      <div className="absolute right-3 top-3 rounded-md bg-background/95 px-2.5 py-1 text-[10px] font-medium text-foreground shadow-sm">
+      <div className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-md bg-background/95 px-2.5 py-1 text-[10px] font-medium text-foreground shadow-sm">
+        <MapPin className="h-3 w-3 text-accent" />
         Open in Google Maps ↗
       </div>
     </a>
@@ -84,7 +65,7 @@ export function BranchLocator() {
         </div>
 
         <div className="mt-10 grid gap-8 md:grid-cols-2">
-          <MapMock branch={active} />
+          <BranchMap branch={active} />
           <div className="flex flex-col">
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <h3 className="font-serif text-2xl text-foreground">{active.name}</h3>
