@@ -12,4 +12,11 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // When deploying to Vercel (env var VERCEL=1 set automatically by Vercel),
+  // force-enable nitro with the Vercel preset so the build emits
+  // .vercel/output/ (Build Output API v3). Otherwise leave nitro on its
+  // default (auto — Cloudflare in Lovable, plain Vite elsewhere).
+  nitro: process.env.VERCEL
+    ? { preset: "vercel" }
+    : undefined,
 });
